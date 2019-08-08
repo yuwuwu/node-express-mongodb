@@ -8,13 +8,14 @@ var User = require('../module/user');
 //   password: String
 // })
 exports.login = (req, res) => {
-  consola.log(User)
+  console.log(User, 123123213)
   User.findOne({ username: 'admin', password: 'admin' }, (err, doc) => {
-    // if (err) {
-    //   console.log(err, 'errr')
-    // } else {
-    consola.log(err, doc, 'er')
-    // }
+    consola.log(2222)
+    if (err) {
+      console.log(err, 'errr')
+    } else {
+      console.log(err, doc, 'er')
+    }
   })
   let { username, password } = req.body;
   if (!username) {
@@ -30,27 +31,12 @@ exports.login = (req, res) => {
     token: 'qwejchsudufdiuw'
   }
 
-  if (username === 'admin' && password === 'admin1') {
+  if (username === 'admin' && password === 'admin') {
 
     responseClient(res, 200, 1, '登录成功', userInfo)
   } else {
     responseClient(res, 200, 0, '用户不存在')
   }
-  // User.findOne({
-  //   email,
-  //   password: md5(password + MD5_SUFFIX),
-  // })
-  //   .then(userInfo => {
-  //     if (userInfo) {
-  //       //登录成功后设置session
-  //       req.session.userInfo = userInfo;
-  //       responseClient(res, 200, 0, '登录成功', userInfo);
-  //     } else {
-  //       responseClient(res, 400, 1, '用户名或者密码错误');
-  //     }
-  //   })
-  //   .catch(err => {
-  //     responseClient(res);
-  //   });
+
 }
 // module.exports = router;

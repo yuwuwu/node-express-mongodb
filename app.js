@@ -25,6 +25,11 @@ app.use(cookieParser());
 app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// mongo
+const mongodb = require('./mongo/mongodb');
+mongodb.connect();
+
 // app.use('/api', indexRouter);
 // app.use('/users', usersRouter);
 // app.use('/api', api);

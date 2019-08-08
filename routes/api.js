@@ -4,9 +4,9 @@ var request = require('request');
 var cheerio = require('cheerio');
 var mysql = require('../mysql/mysql')
 
+// api下的接口都会在这个文件中定义
 
 router.get('/', function (req, res, next) {
-  // console.log(req, '123')
   res.render('index', { title: '231123122ress' });
 });
 router.post('/login', function (req, res, next) {
@@ -20,9 +20,9 @@ router.post('/login', function (req, res, next) {
   res.json(obj);
 });
 
-router.get('/test', function (req, res, next) {
+router.post('/test', function (req, res, next) {
   // console.log(mysql.query)
-  mysql.query()
+  // mysql.query()
   res.send({ abc: 123 })
 
 });
